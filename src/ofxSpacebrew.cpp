@@ -311,21 +311,24 @@ namespace Spacebrew {
     }
 
     //--------------------------------------------------------------
-    void Connection::connect( string _host, string name, string description){
+    void Connection::connect( string _host, string name, string description, int _port){
         host = _host;
+        port = _port;
         config.clientName = name;
         config.description = description;
 
     #ifdef SPACEBREW_USE_OFX_LWS
-        client.connect( host, SPACEBREW_PORT );
+        client.connect( host, port );
     #endif
     }
     
     //--------------------------------------------------------------
-    void Connection::connect( string host, Config _config ){
+    void Connection::connect( string _host, Config _config, int _port ){
+        host = _host;
+        port = _port;
         config = _config;
     #ifdef SPACEBREW_USE_OFX_LWS
-        client.connect( host, SPACEBREW_PORT );
+        client.connect( host, port );
     #endif
     }
     

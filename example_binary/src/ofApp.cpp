@@ -8,7 +8,7 @@ bool bLoad = false;
 void ofApp::setup(){
     spacebrew.addPublish("newImage", "image");
     spacebrew.addSubscribe("loadImage", "image");
-    spacebrew.connect( "localhost", "binaryTester_"+ofToString(ofRandom(10)) );
+    spacebrew.connect( "lab-server.local", "binaryTester_"+ofToString(ofRandom(10)) );
     
     ofAddListener(spacebrew.onBinaryMessage, this, &ofApp::onBinaryMessage);
 }

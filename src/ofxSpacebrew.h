@@ -181,8 +181,8 @@ namespace Spacebrew {
              * @param {std::string} name        Name of your app (shows up in Spacebrew admin)
              * @param {std::string} description What does your app do?
              */
-            void connect( string host = SPACEBREW_CLOUD, string name = "openFrameworks app", string description = "");
-            void connect( string host, Config _config );
+            void connect( string host = SPACEBREW_CLOUD, string name = "openFrameworks app", string description = "", int port = SPACEBREW_PORT);
+            void connect( string host, Config _config, int port = SPACEBREW_PORT);
             
             /**
              * @brief Send a message
@@ -342,6 +342,7 @@ namespace Spacebrew {
             void update( ofEventArgs & e );
         
             string host;
+            int port;
             bool bConnected;
             void updatePubSub();
         
